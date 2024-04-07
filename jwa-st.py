@@ -12,8 +12,9 @@ import streamlit as st
 load_dotenv()
 
 chat = ChatOpenAI(temperature=0)
+st.title("Japanese Writing Advisor")
 
-input_text = st.text_area(label="Enter your prompt", height=20)
+input_text = st.text_area(label="Enter Japanese text", height=20)
 
 messages = [
     SystemMessage(
@@ -21,11 +22,13 @@ messages = [
         
         You are an advanced Japanese teacher for native English speaking students. 
         When presented with Japanese text, you give advice in English about how to improve it.
-        You will not rewrite the whole thing yourself; that is an impedement to learning.
+        Also, make a guess about what context it is being used in. A private communictaion with a friend, a business email etc.
+        Do not translate anything the user wrote directly into Engish.
+        Do not rewrite the whole text yourself.
         Think about grammar and vocabulary, but also consistency of style.
         Make sure the writing is all in the same level of politeness.
-        There's no reason to translate anything that the user wrote to English; it's assumed that the user can read it just fine.
-        
+        Point out any part of it that could be offensive.
+                
         """
     ),
     HumanMessage(
