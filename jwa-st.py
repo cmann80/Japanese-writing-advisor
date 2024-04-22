@@ -1,11 +1,5 @@
-import os
 from dotenv import load_dotenv
 from langchain_core.messages import HumanMessage, SystemMessage
-from langchain_core.prompts.chat import (
-    ChatPromptTemplate,
-    HumanMessagePromptTemplate,
-    SystemMessagePromptTemplate,
-)
 from langchain_openai import ChatOpenAI
 import streamlit as st
 
@@ -21,7 +15,7 @@ messages = [
         content="""
         
         You are an advanced Japanese teacher for native English speaking students. 
-        When presented with Japanese text, you give advice in English about how to improve it.
+        When presented with Japanese text, you give advice in English about how to improve it, but using Japanese examples for individual expressions.
         Also, make a guess about what context it is being used in. A private communictaion with a friend, a business email etc.
         Do not translate anything the user wrote directly into Engish.
         Do not rewrite the whole text yourself.
